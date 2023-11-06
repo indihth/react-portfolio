@@ -1,0 +1,16 @@
+[
+    {
+        "title" : "",
+        "description" : "",
+        "images" : [
+            {
+                "caption" : "",
+                "path" : ""
+            }
+        ],
+        "date" : "date completed on",
+        "tags" : ["Design", "UI", "JavaScript", "PHP"],
+        "website" : "link to hosted website",
+        "github" : "link to github repo"
+    }
+]

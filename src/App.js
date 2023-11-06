@@ -5,22 +5,32 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import PageNotFound from './pages/PageNotFound'
+import ProjectsIndex from './pages/projects/Index'
+
+
 import Navbar from './components/Navbar'
 import NavigateExample from './pages/NavigateExample';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
     <Router>
-      <Navbar></Navbar>
+      <div className=' mx-auto'>
+
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/projects" element={<ProjectsIndex />} />
         <Route path="/nav-example" element={<NavigateExample />} />
 
         <Route path='*' element={<PageNotFound />} />
       </Routes>
-      Footer
+
+
+      </div>
+      <Footer />
     </Router>
   );
 }
