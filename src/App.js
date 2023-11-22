@@ -8,28 +8,32 @@ import PageNotFound from "./pages/PageNotFound";
 import ProjectsIndex from "./pages/projects/Index";
 import ProjectsShow from "./pages/projects/Show";
 
+// Import Components
 import Navbar from "./components/Navbar";
 import NavigateExample from "./pages/NavigateExample";
 import Footer from "./components/Footer";
+import { Flowbite, DarkThemeToggle } from "flowbite-react";
 
 const App = () => {
   return (
     <Router>
-      <div className="mx-auto">
+      <Flowbite>
+      <div className="flex flex-row">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/projects" element={<ProjectsIndex />} />
-          <Route path="/nav-example" element={<NavigateExample />} />
-
-          <Route path="/projects/:slug" element={<ProjectsShow/>}/>
-
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
+        <div className="mt-16">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects" element={<ProjectsIndex />} />
+            <Route path="/nav-example" element={<NavigateExample />} />
+            <Route path="/projects/:slug" element={<ProjectsShow />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+          <Footer />
+        </div>
       </div>
-      <Footer />
+      </Flowbite>
     </Router>
   );
 };

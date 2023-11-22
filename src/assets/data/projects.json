@@ -6,13 +6,23 @@
         "images" : [
             {
                 "caption" : "Screenshot of code",
-                "path" : "https://picsum.photos/300/150"
+                "path" : "https://picsum.photos/480/320"
+            },
+            {
+                "caption" : "Screenshot of code 2",
+                "path" : "https://picsum.photos/480/320"
+            },
+            {
+                "caption" : "Screenshot of code 3",
+                "path" : "https://picsum.photos/480/320"
             }
         ],
+        "category": "Web Development",
         "date" : "2023",
         "tags" : ["JavaScript", "React", "HTML", "Front-End"],
         "website" : "http://google.com",
-        "github" : "http://github.com"
+        "github" : "http://github.com",
+        "demo": "adf"
     },
     {
         "slug" : "giphy-app",
@@ -24,6 +34,22 @@
                 "path" : "https://picsum.photos/300/150"
             }
         ],
+        "category": "Web Development",
+        "date" : "2023",
+        "tags" : ["JavaScript", "React", "HTML", "Front-End", "Rest Client", "API"],
+        "github" : "github.com/blah"
+    },
+    {
+        "slug" : "giphy-app",
+        "title" : "Giphy App",
+        "description" : "An app that allows the user to search gifs using an api.",
+        "images" : [
+            {
+                "caption" : "Screenshot of code",
+                "path" : "https://picsum.photos/300/150"
+            }
+        ],
+        "category": "Web Development",
         "date" : "2023",
         "tags" : ["JavaScript", "React", "HTML", "Front-End", "Rest Client", "API"],
         "github" : "github.com/blah"

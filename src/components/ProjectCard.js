@@ -1,34 +1,53 @@
 import { Link } from "react-router-dom";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Chip
+} from "@material-tailwind/react";
 
 const ProjectCard = ({ project }) => {
-
   const tags = project.tags.map((tag, i) => {
-    return <div key={i} className="badge badge-neutral">
-      {tag}
-    </div>;
+    return (
+      <Chip key={i} variant="ghost" size="sm" value={tag}/>
+    );
   });
 
   return (
-    <div className="card w-96 bg-stone-100 shadow-xl">
-      <figure>
-        <img src={project.images[0].path} alt={project.images[0].caption} />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title">
-          {project.title}
-          <div className="badge badge-secondary">NEW</div>
-        </h2>
-        <p> {project.description}</p>
-        <div className="card-actions justify-end">
-        {tags}
-        <br/>
-        {(project.website) ? (<a href={project.website} target="_blank" className="btn btn-primary">Website</a>) : ""}
-        {(project.github) ? (<a href={project.github} target="_blank" className="btn btn-primary">GitHub</a>) : ""}
-        
-        <Link to={`/projects/${project.slug}`}>Show</Link>
+    <>
+    <Link to={`/projects/${project.slug}`}>
+     <Card className="max-w-[24rem] overflow-hidden">
+      <CardHeader
+        floated={false}
+        shadow={false}
+        color="transparent"
+        className="m-0 rounded-none"
+      >
+        <img
+          className="object-cover w-full h-56"
+          src={project.images[0].path}
+          alt={project.images[0].caption}
+        />
+      </CardHeader>
+      <CardBody>
+        <Typography variant="h4" color="blue-gray">
+        {project.title}
+        </Typography>
+        <Typography variant="lead" color="gray" className="mt-3 font-normal">
+        {project.description}
+        </Typography>
+      </CardBody>
+      <CardFooter className="flex items-end justify-between">
+        <div className="flex flex-wrap gap-2">
+          {tags}
         </div>
-      </div>
-    </div>
+        <Typography className="font-normal">{project.date}</Typography>
+      </CardFooter>
+    </Card>
+    </Link>
+  </>
   );
 };
 
