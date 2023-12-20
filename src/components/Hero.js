@@ -7,6 +7,7 @@ const Hero = () => {
         <img
           src="https://picsum.photos/200/300"
           className="max-w-sm rounded-lg shadow-2xl"
+          alt="asdf"
         />
         <div>
           <h1 className="text-5xl font-bold">Box Office News!</h1>

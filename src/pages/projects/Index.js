@@ -1,13 +1,25 @@
-import { useState } from 'react'
-
-import projectsJSON from '../../assets/data/projects.json'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 // Import components
 import ProjectCard from '../../components/ProjectCard'
+import BackButton from '../../components/BackButton'
 
 const Index = () => {
 
-  const [projects, setProjects] = useState(projectsJSON)
+  const [projects, setProjects] = useState(null)
+
+  useEffect(() => {
+    axios.get("https://india-portfolio-default-rtdb.europe-west1.firebasedatabase.app/.json")
+    .then(response => {
+      setProjects(response.data)
+    })
+    .catch(e => {
+      console.error(e)
+    })
+  }, [])
+
+  if (!projects) return (<p>Loading...</p>)
 
   const projectList = projects.map((project, i) => {
     return <ProjectCard key={i} project={project} />
@@ -15,7 +27,10 @@ const Index = () => {
 
   return (
    <>
-    <div class="grid grid-cols-2 gap-2 justify-items-center">{projectList}</div>
+    <BackButton className="mb-4"/>
+   <div className='grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-4'>
+    {projectList}
+   </div>
    </>
   )
 }

@@ -22,7 +22,7 @@
         "tags" : ["JavaScript", "React", "HTML", "Front-End"],
         "website" : "http://google.com",
         "github" : "http://github.com",
-        "demo": "adf"
+        "demo": true
     },
     {
         "slug" : "giphy-app",
@@ -37,7 +37,8 @@
         "category": "Web Development",
         "date" : "2023",
         "tags" : ["JavaScript", "React", "HTML", "Front-End", "Rest Client", "API"],
-        "github" : "github.com/blah"
+        "github" : "github.com/blah",
+        "demo": true
     },
     {
         "slug" : "giphy-app",
@@ -52,6 +53,23 @@
         "category": "Web Development",
         "date" : "2023",
         "tags" : ["JavaScript", "React", "HTML", "Front-End", "Rest Client", "API"],
-        "github" : "github.com/blah"
+        "github" : "github.com/blah",
+        "demo": true
+    },
+    {
+        "slug" : "trkr",
+        "title" : "Trkr App",
+        "description" : "Online platform to help track learning activities and goals",
+        "images" : [
+            {
+                "caption" : "Screenshot of code",
+                "path" : "https://picsum.photos/300/150"
+            }
+        ],
+        "category": "Web Development",
+        "date" : "2023",
+        "tags" : ["JavaScript", "PHP", "HTML", "Front-End", "Laravel"],
+        "github" : "github.com/blah",
+        "demo": false
     }
 ]

@@ -1,9 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import projectsJSON from "../../assets/data/projects.json";
+import axios from 'axios'
+
+// import projectsJSON from "../../assets/data/projects.json";
 
 // Import components
-import { Carousel } from "@material-tailwind/react";
+import { Carousel, Chip } from "@material-tailwind/react";
+import BackButton from '../../components/BackButton'
+
 
 // import json, look for project with matching slug
 
@@ -12,16 +16,27 @@ const Show = () => {
   const { slug } = useParams();
 
   useEffect(() => {
+    axios.get("https://india-portfolio-default-rtdb.europe-west1.firebasedatabase.app/.json")
+    .then(response => {
+      // Find will return the first match - filter will return all matches in an array
+      setProject(response.data.find((project) => project.slug === slug))
+    })
+    .catch(e => {
+      console.error(e)
+    })
+    
+    // let temp = projectsJSON.find((project) => project.slug === slug);
+    
     // Loop through all projects and return when slug matches slug from useParams
-
-    // Find will return the first match - filter will return all matches in an array
-    let temp = projectsJSON.find((project) => project.slug === slug);
-
     // Storing returned project
-    setProject(temp);
-  }, []);
+    // setProject(temp);
+  }, [slug]);
 
   if (!project) return <h1>Project doesn't exist!</h1>;
+
+  const tags = project.tags.map((tag, i) => {
+    return <Chip key={i} variant="ghost" size="sm" value={tag} />;
+  });
 
   let imageCarousel = "";
 
@@ -62,6 +77,7 @@ const Show = () => {
 
   return (
     <>
+    <BackButton className="mb-4"/>
       <p className="font-semibold text-gray-500 mb-1">{project.category}</p>
       <h1 className="text-6xl mb-20">{project.title}</h1>
       <div className="grid grid-cols-3 gap-4">
@@ -72,8 +88,9 @@ const Show = () => {
         <div>
           <p>
             <b>Tags: </b>
-            {project.tags}
           </p>
+          <div className="flex flex-wrap gap-2">{tags}</div>
+
           {/* <p>
           <b>Dates: </b>
           {project.dates}
