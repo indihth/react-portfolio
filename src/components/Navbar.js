@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 // Import components
@@ -17,39 +17,24 @@ import {
   InboxIcon,
 } from "@heroicons/react/24/solid";
 
-
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <Card className="h-[calc(100vh-2rem)] w-full max-w-[15rem] p-4 shadow-none">
-      <div className="mb-2 p-4">
-        <Typography variant="h5" color="blue-gray">
-          Sidebar
-        </Typography>
-      </div>
-      <List>
-        <ListItem>
-          <ListItemPrefix>
-            <PresentationChartBarIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <Link to="/">Homepage</Link> 
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <ShoppingBagIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <Link to="/projects">Projects</Link> 
-        </ListItem>
-        <ListItem>
-          <ListItemPrefix>
-            <InboxIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          <Link to="/about">About</Link> 
-          <ListItemSuffix>
-            <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
-          </ListItemSuffix>
-        </ListItem>
-      </List>
-    </Card>
+    <div class="flex gap-6 bg-black pt-5 ps-8 shadow-xl text-sm text-gray-600 tracking-widest rounded">
+      <Link to="/" className="hover:text-white">Homepage</Link> /
+      <Link to="/projects" className="hover:text-white">Projects</Link> /
+      <Link to="/about" className="hover:text-white">About</Link> 
+    </div>
+    // <div className="group relative cursor-pointer p-6 w-fit">
+    //   <i class="fa-solid fa-bars text-xl"></i>
+
+    //   <div class="invisible absolute z-50 flex flex-col gap-6 bg-black p-4 shadow-xl group-hover:visible text-sm tracking-widest rounded">
+    //     <Link to="/">Homepage</Link>
+    //     <Link to="/projects">Projects</Link>
+    //     <Link to="/about">About</Link>
+    //   </div>
+    // </div>
   );
 };
 

@@ -17,21 +17,18 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <Router>
-      <div className="flex flex-row bg-white dark:bg-slate-800">
+      <div className="bg-black h-screen text-white">
         <Navbar />
-        <div className="mt-16">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />}  className=""/>
             <Route path="/projects" element={<ProjectsIndex />} />
             <Route path="/projects/:slug" element={<ProjectsShow />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            {/* <Route path="/contact" element={<Contact />} /> */}
             {/* <Route path="/projects/:slug/demo" element={<ProjectsDemo />} /> */}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
-          <Footer />
         </div>
-      </div>
     </Router>
   );
 };

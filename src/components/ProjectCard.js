@@ -24,7 +24,7 @@ const ProjectCard = ({ project }) => {
     <Link to={`/projects/${project.slug}`}>
       <Card
         shadow={false}
-        className="group relative grid h-[18rem] w-[25rem] max-w-[28rem] content-end items-end justify-center overflow-hidden text-center"
+        className="group relative grid h-[18rem] w-[25rem] max-w-[28rem] content-end items-end justify-center overflow-hidden text-center bg-black"
       >
         <CardHeader
           floated={false}
