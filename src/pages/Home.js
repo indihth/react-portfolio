@@ -48,11 +48,11 @@ const Home = () => {
             <Typography variant="paragraph" className="w-1/2 text-gray-500 mb-1">
               With a passion for languages and learning based in Wicklow, Ireland.
             </Typography>
-            <div>
+            {/* <div>
               <Button className={`rounded-full px-8 py-4 bg-${styles.accentColor} text-black tracking-widest font-semibold`}>
                 test button
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
 

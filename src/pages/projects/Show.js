@@ -75,20 +75,26 @@ const Show = () => {
     <div class="flex items-start ps-16 pt-10 bg-black">
       <BackButton className="mb-4 me-4" />
       <div className="pe-28">
-        <p className="font-semibold text-gray-500 my-1 ps-1">{project.category}</p>
+        <p className="font-semibold text-gray-500 my-1 ps-1">
+          {project.category}
+        </p>
         <div className="grid grid-cols-3 gap-4 mt-6">
           <div className="col-span-2 row-span-2 grid pe-12">
             <div className="max-w-screen-lg ">{imageCarousel}</div>
           </div>
           <div className="grid gap-6">
             <h1 className="text-5xl mb-1">{project.title}</h1>
-            <Typography variant="paragraph" className="text-gray-400">{project.description}</Typography>
+            <Typography variant="paragraph" className="text-gray-400">
+              {project.description}
+            </Typography>
 
             <div>
               <Typography variant="small" className="font-semibold mb-1">
                 Technologies
               </Typography>
-              <div className="flex flex-wrap gap-2 text-sm text-gray-400">{technologies}</div>
+              <div className="flex flex-wrap gap-2 text-sm text-gray-400">
+                {technologies}
+              </div>
             </div>
             <div class="flex gap-2 text-white">
               {/* GitHub Button */}
@@ -105,12 +111,16 @@ const Show = () => {
                   GitHub
                 </Button>
               </a>
-              {/* Website Button */}
-              <a href={project.website} target="_blank">
-                <Button className="flex items-center gap-3" variant="filled">
-                  Hosted App
-                </Button>
-              </a>
+              {/* Website Button - if exists*/}
+              {project.website ? (
+                <a href={project.website} target="_blank">
+                  <Button className="flex items-center gap-3" variant="filled">
+                    Hosted App
+                  </Button>
+                </a>
+              ) : (
+                ""
+              )}
             </div>
             {/* {project.demo ? <p>demo goes here</p> : ""} */}
           </div>
